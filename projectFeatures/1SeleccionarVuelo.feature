@@ -11,12 +11,12 @@ Feature: Seleccionar el vuelo mas barato Medellin-Cartagena de una lista de 7 po
     And el usuario haga click en el opcion ida y vuelta
     And el usuario ingrese la ciudad origen <origen>
     And el usuario ingrese la ciudad destino <destino>
-    And el usuario ingrese la fecha de inicio <fec_ini>
-    #And el usuario ingrese la fecha final  <fec_fin>
-    #And el usuario ingrese el numero de personas a viajar  <nro_per>
+    And el usuario ingrese la fecha de inicio
+    And el usuario ingrese la fecha final
+    #And el usuario ingrese el numero de personas a viajar
     #And el usuario haga click en el boton enviar
     #Then el usuario se le presenta las lista de los vuelos seleccionados
 
     Examples: 
-      | origen   | destino   | fec_ini           | fec_fin          | nro_per |
-      | Medellin | Cartagena | 01Septiemnbre2018 | 29Septiembre2018 |       2 |
+      | origen   | destino   | 
+      | Medellin | Cartagena | 

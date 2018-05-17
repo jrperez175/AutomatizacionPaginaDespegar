@@ -34,13 +34,24 @@ public class SearchPage {
 
 	}
 	
-	public void usuarioIngresaFechaSalida(String fec_ini) {
+	public void usuarioIngresaFechaSalida() {
 		
-		driver.findElement(By.className("div.input-container.sbox-bind-event-click-start-date")).click();
-		//driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/input")).click();
-		
+		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/input")).click();
+		driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div[2]")).click();
+		driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div[2]")).click();
+		driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div[2]")).click();
+		driver.findElement(By.xpath("/html/body/div[4]/div/div[4]/div[5]/div[4]/span[1]")).click();
+
 		
 	}
+	
+	public void usuarioIngresaFechaRegreso() {
+		
+		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[4]/input")).click();
+		driver.findElement(By.xpath("/html/body/div[4]/div/div[4]/div[5]/div[4]/span[29]")).click();
+		
+	}
+	
 
 	
 	

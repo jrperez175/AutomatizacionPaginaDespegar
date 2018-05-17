@@ -27,13 +27,14 @@ public class SearchSteps {
 		searchPage.usuarioIngresaCiudadDestino(destino);
 	}
 
-	@And("^el usuario ingrese la fecha de inicio (.*)$")
-	public void usuarioIngresaFechaSalida(String fec_ini) {
-		searchPage.usuarioIngresaFechaSalida(fec_ini);
+	@And("^el usuario ingrese la fecha de inicio$")
+	public void usuarioIngresaFechaSalida() {
+		searchPage.usuarioIngresaFechaSalida();
 	}
 
-	@And("^el usuario ingrese la fecha final  (.*)$")
-	public void el_usuario_ingrese_la_fecha_final_Septiembre(int arg1, int arg2) throws Throwable {
+	@And("^el usuario ingrese la fecha final$")
+	public void usuarioIngresaFechaRegreso() {
+		searchPage.usuarioIngresaFechaRegreso();
 	}
 
 	@And("^el usuario ingrese el numero de personas a viajar  (.*)$")
