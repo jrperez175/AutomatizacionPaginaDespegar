@@ -17,28 +17,29 @@ public class SearchSteps {
 		
 	}
 
-	@And("^el usuario ingrese la ciudad origen (.*)$")
+	@And("^el usuario ingresa la ciudad origen (.*)$")
 	public void usuarioIngresaCiudadOrigen(String origen) throws InterruptedException  {
 		searchPage.usuarioIngresaCiudadOrigen(origen);
 	}
 
-	@And("^el usuario ingrese la ciudad destino (.*)$")
+	@And("^el usuario ingresa la ciudad destino (.*)$")
 	public void usuarioIngresaCiudadDestino(String destino) throws InterruptedException  {
 		searchPage.usuarioIngresaCiudadDestino(destino);
 	}
 
-	@And("^el usuario ingrese la fecha de inicio$")
+	@And("^el usuario ingresa la fecha de inicio$")
 	public void usuarioIngresaFechaSalida() {
 		searchPage.usuarioIngresaFechaSalida();
 	}
 
-	@And("^el usuario ingrese la fecha final$")
+	@And("^el usuario ingresa la fecha final$")
 	public void usuarioIngresaFechaRegreso() {
 		searchPage.usuarioIngresaFechaRegreso();
 	}
 
-	@And("^el usuario ingrese el numero de personas a viajar  (.*)$")
-	public void el_usuario_ingrese_el_numero_de_personas_a_viajar(int arg1) throws Throwable {
+	@And("^el usuario ingresa el numero de personas a viajar$")
+	public void usuarioIngresaNumeroDePersonas()  {
+		searchPage.usuarioIngresaNroPersonas();
 	}
 
 	@And("^el usuario haga click en el boton enviar$")
