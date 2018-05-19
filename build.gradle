@@ -33,6 +33,11 @@ dependencies {
 	testCompile group: 'info.cukes', name: 'cucumber-picocontainer', version: '1.2.5'
     // https://mvnrepository.com/artifact/org.apache.poi/poi   leer excel
 	compile group: 'org.apache.poi', name: 'poi', version: '3.17'
+	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
+	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas
+	compile group: 'org.apache.poi', name: 'poi-ooxml-schemas', version: '3.17'
+	
 	// https://mvnrepository.com/artifact/info.cukes/cucumber-testng
 	compile group: 'info.cukes', name: 'cucumber-testng', version: '1.2.5'
 

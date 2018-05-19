@@ -33,34 +33,65 @@ public class SearchPage {
 
 	}
 	
-	public void usuarioIngresaFechaSalida() {
+	public void usuarioIngresaFechaSalida(String yyyy_ini, String mm_ini, String dd_ini) throws InterruptedException {
 		
 		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/input")).click();
-		driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div[2]")).click();
-		driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div[2]")).click();
-		driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div[2]")).click();
-		driver.findElement(By.xpath("/html/body/div[4]/div/div[4]/div[5]/div[4]/span[1]")).click();
-
+//		driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div[2]")).click();
+//		driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div[2]")).click();
+//		driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div[2]")).click();
+//		driver.findElement(By.xpath("/html/body/div[4]/div/div[4]/div[5]/div[4]/span[1]")).click();
+		
+		while (!driver.findElement(By.xpath("/html/body/div/div/div/div[@data-month='" + yyyy_ini + "-" + mm_ini + "']/div/span[contains(text(),'" + dd_ini + "')]")).isDisplayed()) {
+			driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div[2]")).click();
+		} 
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("/html/body/div/div/div/div[@data-month='" + yyyy_ini + "-" + mm_ini + "']/div/span[contains(text(),'" + dd_ini + "')]")).click();
 		
 	}
 	
-	public void usuarioIngresaFechaRegreso() {
+	public void usuarioIngresaFechaRegreso(String yyyy_fin, String mm_fin, String dd_fin) throws InterruptedException {
 		
-		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[4]/input")).click();
-		driver.findElement(By.xpath("/html/body/div[4]/div/div[4]/div[5]/div[4]/span[29]")).click();
+		//driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[4]/input")).click();
+		//driver.findElement(By.xpath("/html/body/div[4]/div/div[4]/div[5]/div[4]/span[29]")).click();
 		
+		while (!driver.findElement(By.xpath("/html/body/div/div/div/div[@data-month='" + yyyy_fin + "-" + mm_fin + "']/div/span[contains(text(),'" + dd_fin + "')]")).isDisplayed()) {
+			driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div[2]")).click();
+		}
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("/html/body/div/div/div/div[@data-month='" + yyyy_fin + "-" + mm_fin + "']/div/span[contains(text(),'" + dd_fin + "')]")).click();
 	}
 	
 	
-	public void usuarioIngresaNroPersonas() {
+	public void usuarioIngresaNroPersonas(int nro_adultos, int nro_ninos ) {
 		
 		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[1]/div[2]/div[2]/div[6]/div[2]/div/input")).click();
-		driver.findElement(By.xpath("/html/body/div[3]/div/div[1]/div[2]/div/div[1]/div/div[1]/div[2]/div/a[2]")).click();
-		driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/a")).click();
+		
+			
+		int edad_ninos =  (int) (Math.random()*(5-(2-1))+2);
+		
+		for (int i = 0; i < nro_adultos; i++) {
+			driver.findElement(By.xpath("/html/body/div[3]/div/div[1]/div[2]/div/div[1]/div/div[1]/div[2]/div/a[2]")).click();
+		
+		}
+		
+		for (int i = 1; i <= nro_ninos; i++) {
+			driver.findElement(By.xpath("/html/body/div[3]/div/div[1]/div[2]/div/div[1]/div/div[2]/div[2]/div/a[2]")).click();
+			driver.findElement(By.xpath("/html/body/div[3]/div/div[1]/div[2]/div/div[1]/div/div[3]/div["+ nro_ninos +"]/div[2]/div/div/select")).click();                       
+			driver.findElement(By.xpath("/html/body/div[3]/div/div[1]/div[2]/div/div[1]/div/div[3]/div["+ nro_ninos +"]/div[2]/div/div/select/option[" + edad_ninos + "]")).click();
+		}
+		
+		
+				
+		driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/a")).click(); //Boton Aplicar
 		
 	}
 	
-	
+	public void usuarioClickBotonBuscar() throws InterruptedException {
+		
+		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[4]/div/a/em")).click();
+		Thread.sleep(6000);
+		
+	}
 
 	
 	

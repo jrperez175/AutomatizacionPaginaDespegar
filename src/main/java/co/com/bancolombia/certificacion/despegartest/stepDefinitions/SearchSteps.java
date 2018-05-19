@@ -1,5 +1,7 @@
 package co.com.bancolombia.certificacion.despegartest.stepDefinitions;
 
+import static org.junit.Assert.assertEquals;
+
 import org.openqa.selenium.WebDriver;
 
 import co.com.bancolombia.certificacion.despegartest.configuration.ShareDriver;
@@ -27,27 +29,32 @@ public class SearchSteps {
 		searchPage.usuarioIngresaCiudadDestino(destino);
 	}
 
-	@And("^el usuario ingresa la fecha de inicio$")
-	public void usuarioIngresaFechaSalida() {
-		searchPage.usuarioIngresaFechaSalida();
+	@And("^el usuario ingresa la fecha de inicio YYYY (.*) MM (.*) DD (.*)$")
+	public void usuarioIngresaFechaSalida(String yyyy_ini, String mm_ini, String dd_ini) throws InterruptedException {
+		searchPage.usuarioIngresaFechaSalida(yyyy_ini,mm_ini,dd_ini );
 	}
 
-	@And("^el usuario ingresa la fecha final$")
-	public void usuarioIngresaFechaRegreso() {
-		searchPage.usuarioIngresaFechaRegreso();
+	@And("^el usuario ingresa la fecha final YYYY (.*) MM (.*) DD (.*)$")
+	public void usuarioIngresaFechaRegreso(String yyyy_fin, String mm_fin, String dd_fin) throws InterruptedException {
+		searchPage.usuarioIngresaFechaRegreso(yyyy_fin,mm_fin,dd_fin);
 	}
 
-	@And("^el usuario ingresa el numero de personas a viajar$")
-	public void usuarioIngresaNumeroDePersonas()  {
-		searchPage.usuarioIngresaNroPersonas();
+	@And("^el usuario ingresa el numero de personas a viajar (.*) (.*)$")
+	public void usuarioIngresaNumeroDePersonas(int nro_adultos, int nro_ninos)  {
+		searchPage.usuarioIngresaNroPersonas(nro_adultos, nro_ninos);
 	}
 
 	@And("^el usuario haga click en el boton enviar$")
-	public void el_usuario_haga_click_en_el_boton_enviar() throws Throwable {
+	public void usuarioClickBotonEnviar() throws InterruptedException{
+		searchPage.usuarioClickBotonBuscar();
 	}
 
-	@Then("^el usuario se le presenta las lista de los vuelos seleccionados$")
-	public void el_usuario_se_le_presenta_las_lista_de_los_vuelos_seleccionados() throws Throwable {
+	@Then("^al usuario se le presentan la lista de los vuelos$")
+	
+	public void sePresentanListaDeLosVuelos() {
+		String resultado = driver.getTitle();
+    	assertEquals("Despegar.com . Resultados de Vuelos", resultado);
+		
 	}
 	
 	

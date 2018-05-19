@@ -21,8 +21,8 @@ public class HomePage {
 	public void opcionVuelo() throws InterruptedException {
 		Thread.sleep(3000);
 				
-		driver.switchTo().activeElement();
-		driver.findElement(By.xpath("/html/body/div[16]/div/div[1]/span")).click(); //Cierro la ventana modal
+		//driver.switchTo().activeElement();
+		//driver.findElement(By.xpath("/html/body/div[16]/div/div[1]/span")).click(); //Cierro la ventana modal
 		driver.findElement(By.linkText("Vuelos")).click();
 	}
 	
