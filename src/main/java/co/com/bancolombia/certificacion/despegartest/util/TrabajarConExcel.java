@@ -10,7 +10,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 //import org.apache.poi.xssf.usermodel.*;
-public class Excel {
+public class TrabajarConExcel {
 
 	// Dependencies: POI | HSSF Workbook/Sheet/Row/Cell
 	// This method will read and return Excel data into a double array
