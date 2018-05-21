@@ -1,11 +1,14 @@
 package co.com.bancolombia.certificacion.despegartest.pages;
 
+
 import java.io.IOException;
 import java.util.Calendar;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+
 
 import co.com.bancolombia.certificacion.despegartest.util.TrabajarConExcel;
 
@@ -102,10 +105,7 @@ public class SearchPage {
 			driver.findElement(By.xpath("/html/body/div/div/div/div[@data-month='" + yyyy_fin + "-" + mm_fin + "']/div/span[@class='_dpmg2--date _dpmg2--available _dpmg2--nights-tooltip _dpmg2--days--modifier'][" + dd_fin + "]")).click();
 		}
 		
-		Thread.sleep(2000);
-		//driver.findElement(By.xpath("/html/body/div/div/div/div[@data-month='" + yyyy_fin + "-" + mm_fin + "']/div/span[contains(text(),'" + dd_fin + "')]")).click();
-		driver.findElement(By.xpath("/html/body/div/div/div/div[@class='_dpmg2--month _dpmg2--o-5 _dpmg2--has-start-range _dpmg2--month-active']/div/span[contains(text(),'"+ dd_fin + "')]")).click();
-		                             
+		                           
 	}
 	
 	
