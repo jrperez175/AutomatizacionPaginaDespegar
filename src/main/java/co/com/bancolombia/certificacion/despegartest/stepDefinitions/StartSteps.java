@@ -1,5 +1,6 @@
 package co.com.bancolombia.certificacion.despegartest.stepDefinitions;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import co.com.bancolombia.certificacion.despegartest.configuration.ShareDriver;
@@ -22,7 +23,14 @@ public class StartSteps {
 	
     @When ("^el usuario haga click en el opcion vuelo$")
     public void usuarioHaceClicOpcionVuelo() throws InterruptedException {
-		startpage.opcionVuelo();
+    	
+    	Thread.sleep(4000);
+ 	
+    	if (driver.findElement(By.xpath("/html/body/div[16]/div/div[1]/span")).isDisplayed()) {
+    		driver.findElement(By.xpath("/html/body/div[16]/div/div[1]/span")).click(); // Cierro la ventana modal
+		}
+	    	
+    	startpage.opcionVuelo();
 	}
     
         
