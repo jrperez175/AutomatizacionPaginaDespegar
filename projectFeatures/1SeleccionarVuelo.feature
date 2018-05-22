@@ -20,8 +20,8 @@ Feature: Seleccionar el vuelo mas barato Medellin-Cartagena de una lista de 7 po
     And el usuario almacena los registros en excel <ruta_archivo>
 
     Examples: 
-      | origen   | destino | yyyy_ini | mm_ini | dd_ini | yyyy_fin | mm_fin | dd_fin | nro_pers_adultas | nro_pers_ninos | ruta_archivo                                                                                                    |
-      | Medellin | Bogota  |     2018 |     06 |     01 |     2018 |     09 |     29 |                2 |              0 | C:\\Users\\jrperez\\eclipse-workspace\\AutomatizacionVueloPaginaDespegar\\ResultadosBusquedaVuelosDespegar.xlsx |
+      | origen   | destino   | yyyy_ini | mm_ini | dd_ini | yyyy_fin | mm_fin | dd_fin | nro_pers_adultas | nro_pers_ninos | ruta_archivo                              |
+      | Medellin | Cartagena |     2018 |     06 |     01 |     2018 |     09 |     29 |                2 |              0 | D:\\ResultadosBusquedaVuelosDespegar.xlsx |
 
   @Busqueda_FaltaCiudadDestino
   Scenario Outline: Falta Destino

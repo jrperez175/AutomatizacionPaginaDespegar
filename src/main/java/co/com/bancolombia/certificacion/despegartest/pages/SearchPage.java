@@ -3,12 +3,14 @@ package co.com.bancolombia.certificacion.despegartest.pages;
 
 import java.io.IOException;
 import java.util.Calendar;
-
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import co.com.bancolombia.certificacion.despegartest.util.TrabajarConExcel;
 
@@ -20,6 +22,7 @@ public class SearchPage {
 	Calendar c1 = Calendar.getInstance();
 	int mes = c1.get(Calendar.MONTH); 
 	String mesCaracter="";
+	Select orden_vuelo;
 	
 
 	
@@ -146,41 +149,40 @@ public class SearchPage {
 	public void  usuarioAlmacenaDatosExcel(String ruta_archivo) throws IOException {
 		excel = new TrabajarConExcel(ruta_archivo);
 		String aerolinea;
-		//String horaSalida;
-		//String escala;
-		//String horaLlegada;
 		String valor;
 		
 		
+		
 		excel.escribirExcel(0, 0, 0, "Aerolinea");
-		//excel.escribirExcel(0, 0, 1, "Hora de Salida");
-		//excel.escribirExcel(0, 0, 2, "Escala");
-		//excel.escribirExcel(0, 0, 3, "Hora de Llegada");
 		excel.escribirExcel(0, 0, 1, "Valor");
 		
-		for (int i = 1; i <= 7; i++) {
-			aerolinea= driver.findElement(By.xpath("//*[@id=\"clusters\"]/span["+ i +"]/span/cluster/div/div/span/div/div/span[1]/route-choice/ul/li/route/itinerary/div/span/itinerary-element[2]/span/itinerary-element-airline/span/span/span/span[2]")).getText();
-//			horaSalida = driver.findElement(By.xpath("//*[@id=\"clusters\"]/span[1]/span/cluster/div/div/span/div/div/span/route-choice/ul/li/route/mobile-itinerary/div/label/span/span[2]/itinerary-element[1]/span/span/span")).getText();
-//			escala = driver.findElement(By.xpath("//*[@id=\"clusters\"]/span[1]/span/cluster/div/div/span/div/div/span/route-choice/ul/li/route/mobile-itinerary/div/label/span/span[2]/itinerary-element[2]/span/stops-count-item/span/span/span[1]")).getText();
-//			horaLlegada = driver.findElement(By.xpath("//*[@id=\"clusters\"]/span[1]/span/cluster/div/div/span/div/div/span/route-choice/ul/li/route/mobile-itinerary/div/label/span/span[2]/itinerary-element[3]/span/span/span")).getText();
-			valor = driver.findElement(By.xpath("//*[@id=\"clusters\"]/span["+ i +"]/span/cluster/div/div/span/fare-box/div/span/span/span/p[2]/span[2]/em[2]")).getText();
-			
-			excel.escribirExcel(0, i, 0, aerolinea);
-			//excel.escribirExcel(0, i, 1, "horaSalida");
-			//excel.escribirExcel(0, i, 2, "escala");
-			//excel.escribirExcel(0, i, 3, "horaLlegada");
-			excel.escribirExcel(0, i, 1, valor);
-		}
 		
+		try {
+			for (int i = 1; i <= 7; i++) {
+				aerolinea= driver.findElement(By.xpath("//*[@id=\"clusters\"]/span["+ i +"]/span/cluster/div/div/span/div/div/span[1]/route-choice/ul/li/route/itinerary/div/span/itinerary-element[2]/span/itinerary-element-airline/span/span/span/span[2]")).getText();
+				valor = driver.findElement(By.xpath("//*[@id=\"clusters\"]/span["+ i +"]/span/cluster/div/div/span/fare-box/div/span/span/span/p[2]/span[2]/em[2]")).getText();
+				
+				excel.escribirExcel(0, i, 0, aerolinea);
+				excel.escribirExcel(0, i, 1, valor);
+			}
+		} catch (NoSuchElementException e) {
+			for (int i = 1; i <= 7; i++) {
+				aerolinea= driver.findElement(By.xpath("//*[@id=\"clusters\"]/span["+ i +"]/span/cluster/div/div/span/div/div/span[1]/route-choice/ul/li/route/itinerary/div/span/itinerary-element[2]/span/itinerary-element-airline/span/span/span/span[2]")).getText();                                        
+				valor = driver.findElement(By.xpath("//*[@id=\"clusters\"]/span["+ i +"]/span/cluster/div/div/span/fare/span/span/div[1]/item-fare/p/span/flights-price/span/flights-price-element/span/span/em/span[2]")).getText();
+				
+				excel.escribirExcel(0, i, 0, aerolinea);
+				excel.escribirExcel(0, i, 1, valor);
+			}  
+		}	
 		
+				
 	}
 	
 	public void usuarioOrdenaVuelosPorPrecio() throws InterruptedException {
 		Thread.sleep(1000);
-		driver.findElement(By.id("eva-select")).click();
+		orden_vuelo = new Select(driver.findElement(By.id("eva-select")));
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//*[@id=\"eva-select\"]/option[1]")).click();
-		
+		orden_vuelo.selectByIndex(0);		
 		
 	}
 	
