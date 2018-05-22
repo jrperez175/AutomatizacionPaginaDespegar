@@ -10,6 +10,10 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -18,6 +22,8 @@ public class TrabajarConExcel {
 	File src;
 	FileInputStream fis;
 	XSSFWorkbook wb;
+	XSSFCellStyle style;
+	Font font;
 	XSSFSheet sh1;
 	
 	public TrabajarConExcel (String rutaExcel){
@@ -33,8 +39,23 @@ public class TrabajarConExcel {
 		
 	}
 	
-	
-
+	public void Estilo (int sheet, int row, int cell) throws IOException {
+		sh1 = wb.getSheetAt(sheet);
+		style = wb.createCellStyle();
+		font = wb.createFont();
+		//style.setFillBackgroundColor(IndexedColors.BRIGHT_GREEN.getIndex());
+		style.setFillForegroundColor(IndexedColors.BRIGHT_GREEN.getIndex());
+		style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		font.setColor(IndexedColors.RED.getIndex());
+        style.setFont(font);
+		
+		sh1.getRow(row).getCell(cell).setCellStyle(style);
+		
+		FileOutputStream fout = new FileOutputStream(src);
+		wb.write(fout);
+		fout.close();
+		
+	}
 	
 	public String leerExcel (int sheet, int row, int cell) {
 
@@ -44,8 +65,10 @@ public class TrabajarConExcel {
 
 			// Obtiene el valor de la fila y celda deseada
 
-			return sh1.getRow(row).getCell(cell).getStringCellValue();
+			//wb.close();
 			
+			return sh1.getRow(row).getCell(cell).getStringCellValue();
+						
 			
 	}
 			
@@ -59,7 +82,8 @@ public class TrabajarConExcel {
 			}else {
 				sh1.getRow(row).createCell(cell).setCellValue(value);
 			}
-			
+		
+
 			// Especifico el archivo a guardar 
 
 			FileOutputStream fout = new FileOutputStream(src);

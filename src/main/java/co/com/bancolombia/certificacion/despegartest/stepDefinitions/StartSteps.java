@@ -1,6 +1,7 @@
 package co.com.bancolombia.certificacion.despegartest.stepDefinitions;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 import co.com.bancolombia.certificacion.despegartest.configuration.ShareDriver;
@@ -25,12 +26,14 @@ public class StartSteps {
     public void usuarioHaceClicOpcionVuelo() throws InterruptedException {
     	
     	Thread.sleep(4000);
- 	
-    	if (driver.findElement(By.xpath("/html/body/div[16]/div/div[1]/span")).isDisplayed()) {
-    		driver.findElement(By.xpath("/html/body/div[16]/div/div[1]/span")).click(); // Cierro la ventana modal
-		}
-	    	
-    	startpage.opcionVuelo();
+    	try {
+    		if (driver.findElement(By.xpath("/html/body/div[16]/div/div[1]/span")).isDisplayed()) {
+    			driver.findElement(By.xpath("/html/body/div[16]/div/div[1]/span")).click(); // Cierro la ventana modal
+    			startpage.opcionVuelo();
+    		}
+    	}catch (NoSuchElementException e){
+    		startpage.opcionVuelo();
+    	}
 	}
     
         

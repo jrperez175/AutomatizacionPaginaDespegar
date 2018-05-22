@@ -52,9 +52,9 @@ public class SearchSteps {
 		searchPage.usuarioClickBotonBuscar();
 	}
 
-	@And("^el usuario ordena los vuelos por precio$")
-	public void usuarioOrdenaVuelosPorPrecio() throws InterruptedException {
-		searchPage.usuarioOrdenaVuelosPorPrecio();
+	@And("^el usuario ordena los vuelos (.*)$")
+	public void usuarioOrdenaVuelosPorPrecio(String orden) throws InterruptedException {
+		searchPage.usuarioOrdenaVuelosPorPrecio(orden);
 	}
 	
 	
@@ -66,9 +66,14 @@ public class SearchSteps {
 		searchPage.usuarioAlmacenaDatosExcel(ruta_archivo);
 	}
 	
+	@And("^el sistema resalta en color el vuelo mas economico$")
+	public void sistemaResaltaVueloMasEconomico() throws IOException {
+		searchPage.sistemaResaltaVueloMasEconomico();
+	}
+	
+	
 	
 	@Then("^al usuario se le presentan la lista de los vuelos$")
-	
 	public void sePresentanListaDeLosVuelos() {
 		String resultado = driver.getTitle();
     	assertEquals("Despegar.com . Resultados de Vuelos", resultado);
@@ -77,14 +82,14 @@ public class SearchSteps {
 	
 	@Then("^el sistema presenta mensaje Ingresa un destino$")
 	public void sePresentanMensajeErrorIngreseDestino() {
-		String resultado = driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div/div/div/span[1]")).getText();
+		String resultado = driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/span[contains(text(),'Ingresa un destino')]")).getText();
     	assertEquals("Ingresa un destino", resultado);
 	
 	}
 	
 	@Then("^el sistema presenta mensaje El destino debe ser diferente del origen$")
 	public void sePresentanMensajeErrorDestinoDiferenteOrigen() {
-		String resultado = driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div/div/div/span[2]")).getText();
+		String resultado = driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/span[contains(text(),'El destino debe ser diferente del origen')]")).getText();
     	assertEquals("El destino debe ser diferente del origen", resultado);
 	
 	}

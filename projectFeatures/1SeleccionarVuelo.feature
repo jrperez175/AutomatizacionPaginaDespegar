@@ -16,15 +16,16 @@ Feature: Seleccionar el vuelo mas barato Medellin-Cartagena de una lista de 7 po
     And el usuario ingresa el numero de personas a viajar <nro_pers_adultas> <nro_pers_ninos>
     And el usuario haga click en el boton enviar
     Then al usuario se le presentan la lista de los vuelos
-    And el usuario ordena los vuelos por precio
+    And el usuario ordena los vuelos <ordenar>
     And el usuario almacena los registros en excel <ruta_archivo>
+    And el sistema resalta en color el vuelo mas economico
 
     Examples: 
-      | origen   | destino   | yyyy_ini | mm_ini | dd_ini | yyyy_fin | mm_fin | dd_fin | nro_pers_adultas | nro_pers_ninos | ruta_archivo                              |
-      | Medellin | Cartagena |     2018 |     06 |     01 |     2018 |     09 |     29 |                2 |              0 | D:\\ResultadosBusquedaVuelosDespegar.xlsx |
+      | origen   | destino   | yyyy_ini | mm_ini | dd_ini | yyyy_fin | mm_fin | dd_fin | nro_pers_adultas | nro_pers_ninos | ordenar | ruta_archivo                              |
+      | Medellin | Cartagena |     2018 |     06 |     01 |     2018 |     09 |     29 |                2 |              1 | Precio  | D:\\ResultadosBusquedaVuelosDespegar.xlsx |
 
-  @Busqueda_FaltaCiudadDestino
-  Scenario Outline: Falta Destino
+  @Busqueda_CiudadDestinoErrado
+  Scenario Outline: Destino Errado
     Given Dado que el usuario esta en la opcion de busqueda de la pagina Despegar
     When el usuario haga click en el opcion vuelo
     And el usuario haga click en el opcion ida y regreso
@@ -35,7 +36,7 @@ Feature: Seleccionar el vuelo mas barato Medellin-Cartagena de una lista de 7 po
 
     Examples: 
       | origen   | destino |
-      | Medellin |         |
+      | Medellin |       7 |
 
   @Busqueda_CiudadOrigenDestinoIguales
   Scenario Outline: Ciudad Origen y Destino iguales

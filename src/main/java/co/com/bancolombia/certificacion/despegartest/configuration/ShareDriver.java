@@ -28,24 +28,24 @@ public class ShareDriver extends EventFiringWebDriver {
 //		driver.quit();
 //	}
 	
-//	private static final Thread CLOSE_THREAD = new Thread() {
-//	    @Override
-//	    public void run() {
-//	        driver.quit();
-//	    }
-//	};
-//	static {
-//	   Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
-//	}
-//
-//	@Override
-//	public void quit() {
-//	    if (Thread.currentThread() != CLOSE_THREAD) {
-//	        throw new UnsupportedOperationException("You shouldn't quit this WebDriver. It's shared and will quit when the JVM exits.");
-//	    }
-//	    super.quit();
-//	}
-//
+	private static final Thread CLOSE_THREAD = new Thread() {
+	    @Override
+	    public void run() {
+	        driver.quit();
+	    }
+	};
+	static {
+	   Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
+	}
+
+	@Override
+	public void quit() {
+	    if (Thread.currentThread() != CLOSE_THREAD) {
+	        throw new UnsupportedOperationException("You shouldn't quit this WebDriver. It's shared and will quit when the JVM exits.");
+	    }
+	    super.quit();
+	}
+
 	
 }
 

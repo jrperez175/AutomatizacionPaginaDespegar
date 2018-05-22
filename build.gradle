@@ -40,6 +40,10 @@ dependencies {
 	
 	// https://mvnrepository.com/artifact/info.cukes/cucumber-testng
 	compile group: 'info.cukes', name: 'cucumber-testng', version: '1.2.5'
+	
+	// https://mvnrepository.com/artifact/com.github.temyers/cucumber-jvm-parallel-plugin
+	compile group: 'com.github.temyers', name: 'cucumber-jvm-parallel-plugin', version: '5.0.0'
+	
 
     
 }

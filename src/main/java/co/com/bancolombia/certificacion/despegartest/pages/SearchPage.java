@@ -35,21 +35,25 @@ public class SearchPage {
 	
 	public void usuarioIngresaCiudadOrigen(String origen) throws InterruptedException {
 		
-		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div[3]/div[2]/div[1]/div[1]/div/div[1]/div/div/div/input")).clear();
-		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div[3]/div[2]/div[1]/div[1]/div/div[1]/div/div/div/input")).sendKeys(origen);
+		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div/div/div/div/div/div/div/div/div/input[@placeholder='Ingresa desde dónde viajas']")).clear();
+		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div/div/div/div/div/div/div/div/div/input[@placeholder='Ingresa desde dónde viajas']")).sendKeys(origen);
+		
+		
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div[3]/div[2]/div[1]/div[1]/div/div[1]/div/div/div/input")).sendKeys(Keys.ARROW_DOWN);
-		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div[3]/div[2]/div[1]/div[1]/div/div[1]/div/div/div/input")).sendKeys(Keys.ENTER);
+		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div/div/div/div/div/div/div/div/div/input[@placeholder='Ingresa desde dónde viajas']")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div/div/div/div/div/div/div/div/div/input[@placeholder='Ingresa desde dónde viajas']")).sendKeys(Keys.ENTER);
 
 	}
 	
 	public void usuarioIngresaCiudadDestino(String destino) throws InterruptedException {
+			
+		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div/div/div/div/div/div/div/div/div/div/input[@placeholder='Ingresa hacia dónde viajas']")).clear();
+		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div/div/div/div/div/div/div/div/div/div/input[@placeholder='Ingresa hacia dónde viajas']")).sendKeys(destino);
 		
-		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div/div/div/input")).clear();
-		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div/div/div/input")).sendKeys(destino);
+		
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div/div/div/input")).sendKeys(Keys.ARROW_DOWN);
-		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div/div/div/input")).sendKeys(Keys.ENTER);
+		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div/div/div/div/div/div/div/div/div/div/input[@placeholder='Ingresa hacia dónde viajas']")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div/div/div/div/div/div/div/div/div/div/input[@placeholder='Ingresa hacia dónde viajas']")).sendKeys(Keys.ENTER);
 
 	}
 	
@@ -140,8 +144,9 @@ public class SearchPage {
 	
 	public void usuarioClickBotonBuscar() throws InterruptedException {
 		
-		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[4]/div/a/em")).click();
-		Thread.sleep(6000);
+		//driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[4]/div/a/em")).click();
+		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div/div/div/div/a/em[@class=\"btn-text\"]")).click();
+		Thread.sleep(9000);
 		
 	}
 
@@ -172,24 +177,31 @@ public class SearchPage {
 				
 				excel.escribirExcel(0, i, 0, aerolinea);
 				excel.escribirExcel(0, i, 1, valor);
+				
 			}  
 		}	
 		
-				
 	}
 	
-	public void usuarioOrdenaVuelosPorPrecio() throws InterruptedException {
+	public void usuarioOrdenaVuelosPorPrecio(String orden) throws InterruptedException {
 		Thread.sleep(1000);
 		orden_vuelo = new Select(driver.findElement(By.id("eva-select")));
 		Thread.sleep(1000);
-		orden_vuelo.selectByIndex(0);		
+		orden_vuelo.selectByVisibleText(orden);
+		
 		
 	}
 	
+	public void sistemaResaltaVueloMasEconomico() throws IOException {
+		excel.Estilo(0, 1, 1);
+		
+	}
 	
 	public SearchPage (WebDriver driver) {
 		this.driver = driver;
 	}
+
+	
 
 	
 
