@@ -22,7 +22,7 @@ Feature: Seleccionar el vuelo mas barato Medellin-Cartagena de una lista de 7 po
 
     Examples: 
       | origen   | destino   | yyyy_ini | mm_ini | dd_ini | yyyy_fin | mm_fin | dd_fin | nro_pers_adultas | nro_pers_ninos | ordenar | ruta_archivo                              |
-      | Medellin | Cartagena |     2018 |     06 |     01 |     2018 |     09 |     29 |                2 |              1 | Precio  | D:\\ResultadosBusquedaVuelosDespegar.xlsx |
+      | Medellin | Cartagena |     2018 |     09 |     01 |     2018 |     09 |     29 |                1 |              0 | Salida  | D:\\ResultadosBusquedaVuelosDespegar.xlsx |
 
   @Busqueda_CiudadDestinoErrado
   Scenario Outline: Destino Errado
@@ -36,7 +36,7 @@ Feature: Seleccionar el vuelo mas barato Medellin-Cartagena de una lista de 7 po
 
     Examples: 
       | origen   | destino |
-      | Medellin |       7 |
+      | Medellin | Co      |
 
   @Busqueda_CiudadOrigenDestinoIguales
   Scenario Outline: Ciudad Origen y Destino iguales
