@@ -27,11 +27,12 @@ public class StartSteps {
     	
     	Thread.sleep(4000);
     	try {
-    		if (driver.findElement(By.xpath("/html/body/div[16]/div/div[1]/span")).isDisplayed()) {
+    		//if (driver.findElement(By.xpath("/html/body/div[16]/div/div[1]/span")).isDisplayed()) {
     			driver.findElement(By.xpath("/html/body/div[16]/div/div[1]/span")).click(); // Cierro la ventana modal
     			startpage.opcionVuelo();
-    		}
+    		//}
     	}catch (NoSuchElementException e){
+    		Thread.sleep(2000);
     		startpage.opcionVuelo();
     	}
 	}

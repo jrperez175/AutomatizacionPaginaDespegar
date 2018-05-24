@@ -24,10 +24,9 @@ public class SearchPage {
 	Select orden_vuelo;
 
 	public void usuarioClickOpcionIdayRegreso() {
-		driver.findElement(By.xpath(
-				"//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div/div/form/span/label/span[contains(text(),'Ida y vuelta')]"))
-				.click();
-
+		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div/div/form/span/label/span[contains(text(),'Ida y vuelta')]")).click();
+		
+		                             
 	}
 
 	public void usuarioIngresaCiudadOrigen(String origen) throws InterruptedException {
@@ -106,15 +105,14 @@ public class SearchPage {
 		}
 
 		if (mm_fin.equals(mm_ini)) {
-			driver.findElement(By.xpath("/html/body/div/div/div/div[@data-month='" + yyyy_fin + "-" + mm_fin
-					+ "']/div/span[@class='_dpmg2--date _dpmg2--available _dpmg2--nights-tooltip _dpmg2--days--modifier']["
-					+ dd_fin + "]")).click();
-
+			Thread.sleep(1000);
+			//driver.findElement(By.xpath("/html/body/div/div/div/div[@data-month='" + yyyy_fin + "-" + mm_fin + "']/div/span[@class='_dpmg2--date _dpmg2--available _dpmg2--nights-tooltip _dpmg2--days--modifier'][" + dd_fin + "]")).click();
+			driver.findElement(By.xpath("/html/body/div/div/div/div[@data-month='" + yyyy_fin + "-" + mm_fin + "']/div[4]/span[contains(text(),'"+dd_fin +"')]")).click();																				                                        
 		} else {
 			driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div[2]")).click();
-			driver.findElement(By.xpath("/html/body/div/div/div/div[@data-month='" + yyyy_fin + "-" + mm_fin
-					+ "']/div/span[@class='_dpmg2--date _dpmg2--available _dpmg2--nights-tooltip _dpmg2--days--modifier']["
-					+ dd_fin + "]")).click();
+			Thread.sleep(1000);
+			//driver.findElement(By.xpath("/html/body/div/div/div/div[@data-month='" + yyyy_fin + "-" + mm_fin + "']/div/span[@class='_dpmg2--date _dpmg2--available _dpmg2--nights-tooltip _dpmg2--days--modifier']["	+ dd_fin + "]")).click();
+			driver.findElement(By.xpath("/html/body/div/div/div/div[@data-month='" + yyyy_fin + "-" + mm_fin + "']/div[4]/span[contains(text(),'"+dd_fin +"')]")).click();
 		}
 
 	}
@@ -227,7 +225,7 @@ public class SearchPage {
 		}
 
 		excel.Estilo(0, fila, 1);
-
+		
 	}
 
 

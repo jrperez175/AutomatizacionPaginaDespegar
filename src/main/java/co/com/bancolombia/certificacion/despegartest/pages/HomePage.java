@@ -20,7 +20,8 @@ public class HomePage {
 
 	public void opcionVuelo() throws InterruptedException {
 		Thread.sleep(3000);			
-		driver.findElement(By.linkText("Vuelos")).click();
+		//driver.findElement(By.linkText("Vuelos")).click();
+		driver.findElement(By.xpath("/html/body/div/div/div/ul/li/a/span[contains(text(),'Vuelos')]")).click();
 	}
 
 	public HomePage(WebDriver driver) { // constructor

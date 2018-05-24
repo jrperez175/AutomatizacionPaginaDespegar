@@ -80,10 +80,10 @@ public class SearchSteps {
 		
 	}
 	
-	@Then("^el sistema presenta mensaje Ingresa un destino$")
+	@Then("^el sistema presenta mensaje Ingresa una fecha de partida$")
 	public void sePresentanMensajeErrorIngreseDestino() {
-		String resultado = driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/span[contains(text(),'Ingresa un destino')]")).getText();
-    	assertEquals("Ingresa un destino", resultado);
+		String resultado = driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div/div/div/div/div/div/div/div/span[contains(text(),'Ingresa una fecha de partida')]")).getText();
+    	assertEquals("Ingresa una fecha de partida", resultado);
 	
 	}
 	

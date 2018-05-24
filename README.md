@@ -34,19 +34,23 @@ Se creo el projecto (AutomatizacionVueloPaginaDespegar) con la siguiente estruct
 
 *Carpeta:src/main/java* : Contiene los siguiente   
 - Paquete principal **co.com.bancolombia.certificacion.despegartest**: Contiene lo siguiente:  
-**1.co.com.bancolombia.certificacion.despegartest.configuration** = Contiene la clase ShareDriver que controla el navegador.  
+**1.co.com.bancolombia.certificacion.despegartest.configuration** = Contiene la clase ShareDriver.java que instancia el navegador.  
 **2. co.com.bancolombia.certificacion.despegartest.pages ** = Contiene las clases  
 	-HomePage.java (Ingreso a la URl)  
 	-SearchPage.java (Ideinficacion de elementos web y acciones)      
 **3.co.com.bancolombia.certificacion.despegartest.runners** = Contiene la clase TestRunner.java la cual inicia la ejecucion de la automatizacion.  
-**4.co.com.bancolombia.certificacion.despegartest.stepDefinitions** = Contiene la clase  
-SearchSteps.java (Definicion de pasos de la biusqueda)  
+**4.co.com.bancolombia.certificacion.despegartest.stepDefinitions** = Contiene la clases  
+SearchSteps.java (Definicion de pasos de la busqueda)  
 StartSteps.java (Pasos del ingreso a la URL)  
-**5.co.com.bancolombia.certificacion.despegartest.util** = Contine la clase TrabajarConExcel.java para trabajar con archivos de excel.
+**5.co.com.bancolombia.certificacion.despegartest.util** = Contine la clase TrabajarConExcel.java para manipular archivos de excel.
 
 
 
 *Carpeta:projectFeatures*
+![feature](http://img.fenixzone.net/i/KbZ735O.png)  
+
+Contine el feature **1SeleccionarVuelo.feature** el cual define la historia de usuario con escenarios positivos y negativos , cada uno cson sus respectivos parametros.
+
 
 
 ## Framework
@@ -58,8 +62,9 @@ Selenium
 
 ## Compilador
 
-dsdas
+JAVA
 
+---
 ## Patrones desarrollo
 Page Object:Permite separar el comportamiento de una pagina de los detalles de su implementación, es simplemente una clase que encapsula los detalles de implementación de una pagina web, permitiendo que la automatización se centre solamente en el comportamiento
 
@@ -67,9 +72,9 @@ Page Object:Permite separar el comportamiento de una pagina de los detalles de s
 
 ## Practicas de automatizacion
 
-dasdas  
+    
 
-
+---
 ## Herramientas de automatizacion utilizadas
 * [Cucumber-JVM](https://github.com/cucumber/cucumber-jvm) - Cucumber es una herramienta para hacer pruebas de aceptación de usuario (mediante enfoque BDD -Behaviour Driven Development-).
  * [Selenium](http://docs.seleniumhq.org/) - Selenium es un entorno de pruebas de software para aplicaciones basadas en la web.
@@ -82,8 +87,13 @@ dasdas
 ---
 ## Estrategia de automatizacion
 
----
+- Entender  los requerimientos solicitados en el pdf enviado.  
+- Identificar aspectos donde se tenia conocimiento y en cuales me debia documentar.  
+- Navegar por la pagina para comprender como funcionaba el proceso de compra de un tiquete y determinar con cuales elementos se interactuaban.  
+- Definir las herramientas necesarias para la implementación del reto.  
+- Identificar paquetes, clase y métodos necesarios y construirlos.
 
+---
 ## Navegador y version
 ChromeDriver 2.36.540470
 
@@ -93,3 +103,8 @@ ChromeDriver 2.36.540470
 
 ---
 ##CONCLUSIONES  
+
+- Se cumplieron los objetivos planteados en el reto.  
+- Gran oportunidad para seguir afianzando los conocimientos y destrezas en todo el tema de automatización.  
+- Excelente página con temas muy versátiles y diferentes que nos retaban a conocer con más detalle cada uno de los temas necesarios para sacar adelante el reto.
+
