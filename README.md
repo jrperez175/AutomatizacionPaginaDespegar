@@ -1,4 +1,4 @@
-#Automatizacion Vuelos en la Pagina DESPEGAR.COM
+# Automatizacion Vuelos en la Pagina DESPEGAR.COM
 
 Buscar los 10 precios más baratos de tiquetes en el siguiente enlace: https://www.despegar.com.co/  
 Origen: Medellín  
@@ -11,7 +11,7 @@ Marcar en verde el precio más económico.
 
 
 
-##Tabla de Contenido
+## Tabla de Contenido
 
 - [Resumen de codificación](#resumen-de-la-codificacion)
 - [Framework](#framework) 
@@ -102,7 +102,7 @@ ChromeDriver 2.36.540470
 [Repositorio en Git](https://github.com/jrperez175/AutomatizacionPaginaDespegar.git)
 
 ---
-##CONCLUSIONES  
+## Conclusiones  
 
 - Se cumplieron los objetivos planteados en el reto.  
 - Gran oportunidad para seguir afianzando los conocimientos y destrezas en todo el tema de automatización.  
